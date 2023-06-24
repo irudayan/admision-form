@@ -1,0 +1,47 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "web" middleware group. Make something great!
+|
+*/
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::get('/', function () {
+    return redirect(route('login'));
+});
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Admision form
+Route::get('admin-status', [App\Http\Controllers\AdmisionformController::class, 'index'])->name('admin-status');
+Route::get('status', [App\Http\Controllers\AdmisionformController::class, 'status'])->name('status');
+Route::get('admisionform-view/{id}', [App\Http\Controllers\AdmisionformController::class, 'formview'])->name('admisionform-view');
+Route::post('formstore', [App\Http\Controllers\AdmisionformController::class, 'formstore'])->name('formstore');
+Route::get('formedit/{id}', [App\Http\Controllers\AdmisionformController::class, 'formedit'])->name('formedit');
+Route::post('formupdate', [App\Http\Controllers\AdmisionformController::class, 'formupdate'])->name('formupdate');
+
+
+// manage users
+Route::get('/manageusers', [App\Http\Controllers\ManageusersController::class, 'managerusers'])->name('managerusers');
+Route::post('/managerusersupdate', [App\Http\Controllers\ManageusersController::class, 'managerusersupdate'])->name('managerusersupdate');
+Route::get('/manageusersedit/{id}', [App\Http\Controllers\ManageusersController::class, 'managerusersedit'])->name('manageusersedit');
+Route::delete('/managerusersdelete/{id}', [App\Http\Controllers\ManageusersController::class, 'managerusersdelete'])->name('managerusersdelete');
+
+
+
+
+
+
