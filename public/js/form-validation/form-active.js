@@ -213,10 +213,10 @@ $.validator.addMethod(
 				// {
 				// 	required: true
 				// },
-				// photo:
-				// {
-				// 	required: true
-				// },
+				photo:
+				{
+					required: true
+				},
 				// hsslcmarksheet:
 				// {
 				// 	required: true
@@ -229,10 +229,10 @@ $.validator.addMethod(
 				// {
 				// 	required: true
 				// },
-				communitycertificate:
-				{
-					required: true
-				}
+				// communitycertificate:
+				// {
+				// 	required: true
+				// }
 
 			},
 			messages:

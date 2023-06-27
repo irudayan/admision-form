@@ -16,11 +16,11 @@
                                         <div class="review-content-section">
                                             <div id="dropzone1" class="pro-ad">
                                                 <form action="{{ route('formstore') }}" method="POST"
-                                                    class="dropzone dropzone-custom needsclick add-professors" enctype="multipart/form-data"
-                                                    id="demo1-upload">
+                                                    class="dropzone dropzone-custom needsclick add-professors"
+                                                    enctype="multipart/form-data" id="demo1-upload">
                                                     @csrf
                                                     <div class="row">
-                                                           
+
                                                         {{-- left --}}
                                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                                             <div class="form-group">
@@ -40,10 +40,6 @@
                                                                 </select>
                                                             </div>
 
-                                                            <div class="form-group">
-                                                                <input name="fullname" type="text" class="form-control"  placeholder="Full Name">
-                                                            </div>
-                                                            
                                                             <div class="form-group">
                                                                 <input name="mobileno" type="text" class="form-control"
                                                                     placeholder="Telephone No. /Contact No">
@@ -103,8 +99,8 @@
                                                             </div>
 
                                                             <div class="form-group ">
-                                                                <input type="text" class="form-control" name="hslcrollno"
-                                                                    placeholder="Roll No">
+                                                                <input type="text" class="form-control"
+                                                                    name="hslcrollno" placeholder="Roll No">
                                                             </div>
 
                                                             <div class="form-group ">
@@ -178,7 +174,7 @@
                                                                     <option value="none" selected="" disabled="">
                                                                         Select Gender</option>
                                                                     <option value="Male">Male</option>
-                                                                    <option value="">Female</option>
+                                                                    <option value="Female">Female</option>
                                                                 </select>
                                                             </div>
 
@@ -311,56 +307,257 @@
                                                             </div>
 
                                                         </div>
-                                                        {{-- <div class="form-group "> --}}
-                                                            {{-- <input type="text" class="form-control"
-                                                                name="previousgrade" placeholder="Grade"> --}}
-                                                        {{-- </div> --}}
-
+                                                        
                                                     </div>
 
-
-                                                        {{-- file --}}
-                                                     
-
+                                                    
+                                                    <center>
+                                                        <h4>BA Degree Offered At Sche</h4>
                                                         <center>
-                                                            <h4>File Upload</h4>
-                                                            <center>
-                                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                                                    <div class="form-group">
-                                                                       
-                                                                      <label class="control-label" style="text-align: left">Photo</label>
-                                                                      <input type="file" class="form-control" id="photo" name="photo"  accept="image/*">
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                      <label for="hsslcmarksheet" class="control-label">HSLC & HSSLC Examination Mark Sheets</label>
-                                                                      <input type="file" class="form-control" id="hsslcmarksheet" name="hsslcmarksheet" accept="image/*">
-                                                                    </div>
-                                                                  </div>
-                                                                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                                                    <div class="form-group">
-                                                                      <label for="hsslcadmitcard" class="control-label">HSSLC & HSSLC Examination Admit Card</label>
-                                                                      <input type="file" class="form-control" id="hsslcadmitcard" name="hsslcadmitcard" placeholder="photo" accept="image/*">
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                      <label for="birthcertificate" class="control-label">Birth Certificate</label>
-                                                                      <input type="file" class="form-control" id="birthcertificate" name="birthcertificate" accept="image/*">
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                        <label for="communitycertificate" class="control-label">Schedule Tribe/Community Certificate</label>
-                                                                        <input type="file" class="form-control" name="communitycertificate" accept="image/*">
-                                                                      </div>
-                                                                  </div>
-                                                     </div>
-
                                                     <div class="row">
-                                                        <div class="col-lg-12">
-                                                            <div class="payment-adress">
-                                                                <button type="submit" class="btn btn-primary waves-effect waves-light">Submit</button>
+                                                        <div class="col-12">
+                                                            <div class="table-responsive">
+                                                                <table class="table table-bordered">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>Core Course</th>
+                                                                            <th>English</th>
+                                                                            <th>DSE-History</th>
+                                                                            <th>DSE-Philosophy</th>
+                                                                            <th>DSE-Pol-Science</th>
+                                                                            <th>DSE-Sociology</th>
+                                                                            {{-- <th>Generl: English I &II 
+                                                                                DSC I&II A,B, MIL-I,II
+                                                                                </th> --}}
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td> <h5 style="text-align: left">DSE</h5></td>
+                                                                            <td>
+                                                                                <input type="text" class="form-control" name="DSE_English" placeholder="E1.English">
+                                                                            </td>
+                                                                            <td>
+                                                                                <input type="text" class="form-control" name="DSE_History" placeholder="E1.History">
+                                                                            </td>
+                                                                            <td>
+                                                                                <input type="text" class="form-control" name="DSE_Philosophy" placeholder="E1.Philosophy">
+                                                                            </td>
+                                                                            <td>
+                                                                                <input type="text" class="form-control" name="DSE_Pol_Science" placeholder="E1.Pol.Science">
+                                                                            </td>
+                                                                            <td>
+                                                                                <input type="text" class="form-control" name="DSE_Sociology" placeholder="E1.Sociology">
+                                                                            </td>
+                                                                            {{-- <td>
+                                                                                <input type="text" class="form-control" name="previousgrade" placeholder="Grade">
+                                                                            </td> --}}
+                                                                        </tr>
+                                                                    </tbody>
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td> <h5 style="text-align: left">GE</h5></td>
+                                                                            <td>
+                                                                                <input type="text" class="form-control" name="GE_English" placeholder="E2.English">
+                                                                            </td>
+                                                                            <td>
+                                                                                <input type="text" class="form-control" name="GE_History" placeholder="E2.History">
+                                                                            </td>
+                                                                            <td>
+                                                                                <input type="text" class="form-control" name="GE_Philosophy" placeholder="E2.Philosophy">
+                                                                            </td>
+                                                                            <td>
+                                                                                <input type="text" class="form-control" name="GE_Pol_Science" placeholder="E2.Pol.Science">
+                                                                            </td>
+                                                                            <td>
+                                                                                <input type="text" class="form-control" name="GE_Sociology" placeholder="E2.Sociology">
+                                                                            </td>
+                                                                            {{-- <td>
+                                                                                <input type="text" class="form-control" name="previousgrade" placeholder="Grade">
+                                                                            </td> --}}
+                                                                        </tr>
+                                                                    </tbody>
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td> <h5 style="text-align: left">SEC</h5></td>
+                                                                            <td>
+                                                                                <input type="text" class="form-control" name="SEC_English" placeholder="E3.English">
+                                                                            </td>
+                                                                            <td>
+                                                                                <input type="text" class="form-control" name="SEC_History" placeholder="E3.History">
+                                                                            </td>
+                                                                            <td>
+                                                                                <input type="text" class="form-control" name="SEC_Philosophy" placeholder="E3.Philosophy">
+                                                                            </td>
+                                                                            <td>
+                                                                                <input type="text" class="form-control" name="SEC_Pol_Science" placeholder="E3.Pol.Science">
+                                                                            </td>
+                                                                            <td>
+                                                                                <input type="text" class="form-control" name="SEC_Sociology" placeholder="E3.Sociology">
+                                                                            </td>
+                                                                            {{-- <td>
+                                                                                <input type="text" class="form-control" name="previousgrade" placeholder="Grade">
+                                                                            </td> --}}
+                                                                        </tr>
+                                                                    </tbody>
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td> <h5 style="text-align: left">AECC</h5></td>
+                                                                            <td>
+                                                                                <input type="text" class="form-control" name="AECC_English" placeholder="E4.English">
+                                                                            </td>
+                                                                            <td>
+                                                                                <input type="text" class="form-control" name="AECC_History" placeholder="E4.History">
+                                                                            </td>
+                                                                            <td>
+                                                                                <input type="text" class="form-control" name="AECC_Philosophy" placeholder="E4.Philosophy">
+                                                                            </td>
+                                                                            <td>
+                                                                                <input type="text" class="form-control" name="AECC_Pol_Science" placeholder="E4.Pol.Science">
+                                                                            </td>
+                                                                            <td>
+                                                                                <input type="text" class="form-control" name="AECC_Sociology" placeholder="E4.Sociology">
+                                                                            </td>
+                                                                            {{-- <td>
+                                                                                <input type="text" class="form-control" name="previousgrade" placeholder="Grade">
+                                                                            </td> --}}
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </form>
+
+
+                                                    {{-- selected subject --}}
+                                                
+                                                   <center>
+                                                    <h4 >Selected Subjects</h4>
+                                                </center>
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <div class="table-responsive">
+                                                                <table class="table table-bordered">
+                                                                    <!-- Table header -->
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>Course</th>
+                                                                            <th>Honours</th>
+                                                                            <th>Elective I</th>
+                                                                            <th>Elective II</th>
+                                                                            <th>Elective III</th>
+                                                                            <th>Elective IV</th>
+                                                                           
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <!-- Table body -->
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td> <h5 style="text-align: left">Honours Subject</h5></td>
+                                                                            <td>
+                                                                                <input type="text" class="form-control" name="Hon_Sub_1" placeholder="Hon-Sub-1">
+                                                                            </td>
+                                                                            <td>
+                                                                                <input type="text" class="form-control" name="Hon_Sub_2" placeholder="Hon-Sub-2">
+                                                                            </td>
+                                                                            <td>
+                                                                                <input type="text" class="form-control" name="Hon_Sub_3" placeholder="Hon-Sub-3">
+                                                                            </td>
+                                                                            <td>
+                                                                                <input type="text" class="form-control" name="Hon_Sub_4" placeholder="Hon-Sub-4">
+                                                                            </td>
+                                                                            <td>
+                                                                                <input type="text" class="form-control" name="Hon_Sub_5" placeholder="Hon-Sub-4">
+                                                                            </td>
+                                                                           
+                                                                           
+                                                                        </tr>
+                                                                    </tbody>
+                                                                  
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td> <h5 style="text-align: left">General Course</h5></td>
+                                                                            
+                                                                            <td>
+                                                                                <input type="text" class="form-control" name="General_Course_1" placeholder="General-Course-1">
+                                                                            </td>
+                                                                            <td>
+                                                                                <input type="text" class="form-control" name="General_Course_2" placeholder="General-Course-2">
+                                                                            </td>
+                                                                            <td>
+                                                                                <input type="text" class="form-control" name="General_Course_3" placeholder="General-Course-3">
+                                                                            </td>
+                                                                            <td>
+                                                                                <input type="text" class="form-control" name="General_Course_4" placeholder="General-Course-4">
+                                                                            </td>
+                                                                            <td>
+                                                                                <input type="text" class="form-control" name="General_Course_5" placeholder="General-Course-5">
+                                                                            </td>
+                                                                           
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    
+                                                
+
+                                                    <center>
+                                                        <h4>File Upload</h4>
+                                                        <center>
+                                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                                <div class="form-group">
+
+                                                                    <label class="control-label"
+                                                                        style="text-align: left">Photo</label>
+                                                                    <input type="file" class="form-control"
+                                                                        id="photo" name="photo" accept="image/*">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="hsslcmarksheet" class="control-label">HSLC
+                                                                        & HSSLC Examination Mark Sheets</label>
+                                                                    <input type="file" class="form-control"
+                                                                        id="hsslcmarksheet" name="hsslcmarksheet"
+                                                                        accept="image/*">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label for="hsslcadmitcard"
+                                                                        class="control-label">HSSLC & HSSLC Examination
+                                                                        Admit Card</label>
+                                                                    <input type="file" class="form-control"
+                                                                        id="hsslcadmitcard" name="hsslcadmitcard"
+                                                                        placeholder="photo" accept="image/*">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="birthcertificate"
+                                                                        class="control-label">Birth Certificate</label>
+                                                                    <input type="file" class="form-control"
+                                                                        id="birthcertificate" name="birthcertificate"
+                                                                        accept="image/*">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="communitycertificate"
+                                                                        class="control-label">Schedule Tribe/Community
+                                                                        Certificate</label>
+                                                                    <input type="file" class="form-control"
+                                                                        name="communitycertificate" accept="image/*">
+                                                                </div>
+                                                            </div>
                                             </div>
+
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <div class="payment-adress">
+                                                        <button type="submit"
+                                                            class="btn btn-primary waves-effect waves-light">Submit</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -371,20 +568,21 @@
             </div>
         </div>
     </div>
+    </div>
     <div id="extra-area-chart" style="height: 180px;"></div>
 
     {{-- validation --}}
     <!-- jquery
-                  ============================================ -->
+                      ============================================ -->
     <script src="{{ asset('js/vendor/jquery-1.12.4.min.js') }}"></script>
     <!-- bootstrap JS
-                  ============================================ -->
+                      ============================================ -->
     <!-- datepicker JS
-                  ============================================ -->
+                      ============================================ -->
     <script src="{{ asset('js/datepicker/jquery-ui.min.js') }}"></script>
     <script src="js/datepicker/datepicker-active.js"></script>
     <!-- form validate JS
-                  ============================================ -->
+                      ============================================ -->
     <script src="{{ asset('js/form-validation/jquery.form.min.js') }}"></script>
     <script src="{{ asset('js/form-validation/jquery.validate.min.js') }}"></script>
     <script src="{{ asset('js/form-validation/form-active.js') }}"></script>

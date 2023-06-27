@@ -33,6 +33,8 @@ Route::post('formstore', [App\Http\Controllers\AdmisionformController::class, 'f
 Route::get('formedit/{id}', [App\Http\Controllers\AdmisionformController::class, 'formedit'])->name('formedit');
 Route::post('formupdate', [App\Http\Controllers\AdmisionformController::class, 'formupdate'])->name('formupdate');
 
+// pdf
+Route::get('formPdf/{id}',[App\Http\Controllers\AdmisionformController::class, 'formPdf'])->name('formPdf');
 
 // manage users
 Route::get('/manageusers', [App\Http\Controllers\ManageusersController::class, 'managerusers'])->name('managerusers');

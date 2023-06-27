@@ -28,7 +28,7 @@
                                                     <div class="product-status-wrap">
                                                         <h4>Status List</h4>
                                                         <div class="add-product">
-                                                            <a href="#">PDF</a>
+                                                            <a href="{{ url('formPdf', $userId->id) }}">PDF</a>
                                                         </div>
                                                         <div class="asset-inner">
                                                             <table>
@@ -41,21 +41,21 @@
                                                                 </tr>
                                                                 <tr>
                                                                  
-                                                                        <td>{{ $status->fullname }}</td>
-                                                                        <td>{{ $status->mobileno }}</td>
-                                                                        <td>{{ $status->email }}</td>
+                                                                        <td>{{ $userId->fullname }}</td>
+                                                                        <td>{{ $userId->mobileno }}</td>
+                                                                        <td>{{ $userId->email }}</td>
                                                                   <td>
                                                                     <button class="pd-setting">Active</button>
                                                                   </td>
                                                                   <td>
                                                                     <button data-toggle="tooltip" title="Edit" class="pd-setting-ed">
-                                                                      <a href="{{ url('formedit', $status->id) }}">
+                                                                      <a href="{{ url('formedit', $userId->id) }}">
                                                                         <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                                                       </a>
                                                                     </button>
                                                               
                                                                     <button data-toggle="tooltip" title="view" class="pd-setting-ed">
-                                                                      <a href="{{ url('admisionform-view', $status->id) }}">
+                                                                      <a href="{{ url('admisionform-view', $userId->id) }}">
                                                                         <i class="fa fa-eye" aria-hidden="true"></i>
                                                                       </a>
                                                                     </button>

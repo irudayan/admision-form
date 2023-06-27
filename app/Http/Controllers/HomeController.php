@@ -25,7 +25,7 @@ class HomeController extends Controller
     {
          $usertype = Auth::user()->usertype;
   
-            if($usertype=='Admin'){
+            if($usertype == 'Admin') {
                 return view('backend.include.home');
             }else{
                 return redirect()->route('status');
