@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 24, 2023 at 01:53 PM
+-- Generation Time: Jun 27, 2023 at 11:17 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -30,57 +30,88 @@ SET time_zone = "+00:00";
 CREATE TABLE `admisionforms` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `user_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `fullname` varchar(255) DEFAULT NULL,
-  `mobileno` varchar(255) DEFAULT NULL,
-  `bloodgroup` varchar(255) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `dateofbirth` varchar(255) DEFAULT NULL,
-  `fathername` varchar(255) DEFAULT NULL,
-  `mothername` varchar(255) DEFAULT NULL,
-  `religion` varchar(255) DEFAULT NULL,
-  `motherphone` varchar(255) DEFAULT NULL,
-  `fatherphone` varchar(255) DEFAULT NULL,
-  `fatheroccupation` varchar(255) DEFAULT NULL,
-  `motheroccupation` varchar(255) DEFAULT NULL,
-  `permanentaddress` varchar(255) DEFAULT NULL,
-  `correspondentaddress` varchar(255) DEFAULT NULL,
-  `localguardianname` varchar(255) DEFAULT NULL,
-  `localguardianno` varchar(255) DEFAULT NULL,
-  `category` varchar(255) DEFAULT NULL,
-  `tribe` varchar(255) DEFAULT NULL,
-  `postcode` varchar(255) DEFAULT NULL,
-  `gender` varchar(255) DEFAULT NULL,
-  `country` varchar(255) DEFAULT NULL,
-  `state` varchar(255) DEFAULT NULL,
-  `hslcyear` varchar(255) DEFAULT NULL,
-  `hslcrollno` varchar(255) DEFAULT NULL,
-  `hslcdivision` varchar(255) DEFAULT NULL,
-  `hslcpercentage` varchar(255) DEFAULT NULL,
-  `hslcboard` varchar(255) DEFAULT NULL,
-  `hsslcyear` varchar(255) DEFAULT NULL,
-  `hsslcrollno` varchar(255) DEFAULT NULL,
-  `hsslcdivision` varchar(255) DEFAULT NULL,
-  `hsslcpercentage` varchar(255) DEFAULT NULL,
-  `hsslcboard` varchar(255) DEFAULT NULL,
-  `schoolname` varchar(255) DEFAULT NULL,
-  `collegename` varchar(255) DEFAULT NULL,
-  `schoollastattended` varchar(255) DEFAULT NULL,
-  `collegelastattended` varchar(255) DEFAULT NULL,
-  `boarduniversity` varchar(255) DEFAULT NULL,
-  `cerificateno` varchar(255) DEFAULT NULL,
-  `certificatedate` varchar(255) DEFAULT NULL,
-  `subject1` varchar(255) DEFAULT NULL,
-  `subject2` varchar(255) DEFAULT NULL,
-  `subject3` varchar(255) DEFAULT NULL,
-  `subject4` varchar(255) DEFAULT NULL,
-  `subject5` varchar(255) DEFAULT NULL,
-  `previouspercentage` varchar(255) DEFAULT NULL,
-  `previousgrade` varchar(255) DEFAULT NULL,
-  `photo` varchar(255) DEFAULT NULL,
-  `hsslcmarksheet` varchar(255) DEFAULT NULL,
-  `hsslcadmitcard` varchar(255) DEFAULT NULL,
-  `birthcertificate` varchar(255) DEFAULT NULL,
-  `communitycertificate` varchar(255) DEFAULT NULL,
+  `fullname` text DEFAULT NULL,
+  `mobileno` text DEFAULT NULL,
+  `bloodgroup` text DEFAULT NULL,
+  `email` text DEFAULT NULL,
+  `dateofbirth` text DEFAULT NULL,
+  `fathername` text DEFAULT NULL,
+  `mothername` text DEFAULT NULL,
+  `religion` text DEFAULT NULL,
+  `motherphone` text DEFAULT NULL,
+  `fatherphone` text DEFAULT NULL,
+  `fatheroccupation` text DEFAULT NULL,
+  `motheroccupation` text DEFAULT NULL,
+  `permanentaddress` text DEFAULT NULL,
+  `correspondentaddress` text DEFAULT NULL,
+  `localguardianname` text DEFAULT NULL,
+  `localguardianno` text DEFAULT NULL,
+  `category` text DEFAULT NULL,
+  `tribe` text DEFAULT NULL,
+  `postcode` text DEFAULT NULL,
+  `gender` text DEFAULT NULL,
+  `country` text DEFAULT NULL,
+  `state` text DEFAULT NULL,
+  `hslcyear` text DEFAULT NULL,
+  `hslcrollno` text DEFAULT NULL,
+  `hslcdivision` text DEFAULT NULL,
+  `hslcpercentage` text DEFAULT NULL,
+  `hslcboard` text DEFAULT NULL,
+  `hsslcyear` text DEFAULT NULL,
+  `hsslcrollno` text DEFAULT NULL,
+  `hsslcdivision` text DEFAULT NULL,
+  `hsslcpercentage` text DEFAULT NULL,
+  `hsslcboard` text DEFAULT NULL,
+  `schoolname` text DEFAULT NULL,
+  `collegename` text DEFAULT NULL,
+  `schoollastattended` text DEFAULT NULL,
+  `collegelastattended` text DEFAULT NULL,
+  `boarduniversity` text DEFAULT NULL,
+  `cerificateno` text DEFAULT NULL,
+  `certificatedate` text DEFAULT NULL,
+  `subject1` text DEFAULT NULL,
+  `subject2` text DEFAULT NULL,
+  `subject3` text DEFAULT NULL,
+  `subject4` text DEFAULT NULL,
+  `subject5` text DEFAULT NULL,
+  `previouspercentage` text DEFAULT NULL,
+  `previousgrade` text DEFAULT NULL,
+  `photo` text DEFAULT NULL,
+  `hsslcmarksheet` text DEFAULT NULL,
+  `hsslcadmitcard` text DEFAULT NULL,
+  `birthcertificate` text DEFAULT NULL,
+  `communitycertificate` text DEFAULT NULL,
+  `DSE_English` text DEFAULT NULL,
+  `DSE_History` text DEFAULT NULL,
+  `DSE_Philosophy` text DEFAULT NULL,
+  `DSE_Pol_Science` text DEFAULT NULL,
+  `DSE_Sociology` text DEFAULT NULL,
+  `GE_English` text DEFAULT NULL,
+  `GE_History` text DEFAULT NULL,
+  `GE_Philosophy` text DEFAULT NULL,
+  `GE_Pol_Science` text DEFAULT NULL,
+  `GE_Pol-Science` text DEFAULT NULL,
+  `GE_Sociology` text DEFAULT NULL,
+  `SEC_English` text DEFAULT NULL,
+  `SEC_History` text DEFAULT NULL,
+  `SEC_Philosophy` text DEFAULT NULL,
+  `SEC_Pol_Science` text DEFAULT NULL,
+  `SEC_Sociology` text DEFAULT NULL,
+  `AECC_English` text DEFAULT NULL,
+  `AECC_History` text DEFAULT NULL,
+  `AECC_Philosophy` text DEFAULT NULL,
+  `AECC_Pol_Science` text DEFAULT NULL,
+  `AECC_Sociology` text DEFAULT NULL,
+  `Hon_Sub_1` text DEFAULT NULL,
+  `Hon_Sub_2` text DEFAULT NULL,
+  `Hon_Sub_3` text DEFAULT NULL,
+  `Hon_Sub_4` text DEFAULT NULL,
+  `Hon_Sub_5` text DEFAULT NULL,
+  `General_Course_1` text DEFAULT NULL,
+  `General_Course_2` text DEFAULT NULL,
+  `General_Course_3` text DEFAULT NULL,
+  `General_Course_4` text DEFAULT NULL,
+  `General_Course_5` text DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -89,10 +120,9 @@ CREATE TABLE `admisionforms` (
 -- Dumping data for table `admisionforms`
 --
 
-INSERT INTO `admisionforms` (`id`, `user_id`, `fullname`, `mobileno`, `bloodgroup`, `email`, `dateofbirth`, `fathername`, `mothername`, `religion`, `motherphone`, `fatherphone`, `fatheroccupation`, `motheroccupation`, `permanentaddress`, `correspondentaddress`, `localguardianname`, `localguardianno`, `category`, `tribe`, `postcode`, `gender`, `country`, `state`, `hslcyear`, `hslcrollno`, `hslcdivision`, `hslcpercentage`, `hslcboard`, `hsslcyear`, `hsslcrollno`, `hsslcdivision`, `hsslcpercentage`, `hsslcboard`, `schoolname`, `collegename`, `schoollastattended`, `collegelastattended`, `boarduniversity`, `cerificateno`, `certificatedate`, `subject1`, `subject2`, `subject3`, `subject4`, `subject5`, `previouspercentage`, `previousgrade`, `photo`, `hsslcmarksheet`, `hsslcadmitcard`, `birthcertificate`, `communitycertificate`, `created_at`, `updated_at`) VALUES
-(9, 8, 'irudayan raj', '08760870314', 'B+', 'irudayan111@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Thripattur', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'India', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '2023-06-23 23:20:23', '2023-06-24 01:42:27'),
-(10, 9, 'savari savari', '08760870314', 'AB+', 'irudayan111@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Thripattur', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'India', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'C:\\xampp\\tmp\\php6FAA.tmp', NULL, NULL, NULL, 'C:\\xampp\\tmp\\php6FAB.tmp', '2023-06-24 01:53:24', '2023-06-24 06:19:53'),
-(18, 10, 'savari savari', '08760870314', 'B+', 'irudayan111@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Thripattur', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'India', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'C:\\xampp\\tmp\\phpF2E9.tmp', 'imresizer-1685107347457 (1).jpg', NULL, 'WhatsApp Image 2023-05-16 at 2.52.18 PM.jpeg', 'C:\\xampp\\tmp\\phpF2EA.tmp', '2023-06-24 04:57:04', '2023-06-24 06:18:15');
+INSERT INTO `admisionforms` (`id`, `user_id`, `fullname`, `mobileno`, `bloodgroup`, `email`, `dateofbirth`, `fathername`, `mothername`, `religion`, `motherphone`, `fatherphone`, `fatheroccupation`, `motheroccupation`, `permanentaddress`, `correspondentaddress`, `localguardianname`, `localguardianno`, `category`, `tribe`, `postcode`, `gender`, `country`, `state`, `hslcyear`, `hslcrollno`, `hslcdivision`, `hslcpercentage`, `hslcboard`, `hsslcyear`, `hsslcrollno`, `hsslcdivision`, `hsslcpercentage`, `hsslcboard`, `schoolname`, `collegename`, `schoollastattended`, `collegelastattended`, `boarduniversity`, `cerificateno`, `certificatedate`, `subject1`, `subject2`, `subject3`, `subject4`, `subject5`, `previouspercentage`, `previousgrade`, `photo`, `hsslcmarksheet`, `hsslcadmitcard`, `birthcertificate`, `communitycertificate`, `DSE_English`, `DSE_History`, `DSE_Philosophy`, `DSE_Pol_Science`, `DSE_Sociology`, `GE_English`, `GE_History`, `GE_Philosophy`, `GE_Pol_Science`, `GE_Pol-Science`, `GE_Sociology`, `SEC_English`, `SEC_History`, `SEC_Philosophy`, `SEC_Pol_Science`, `SEC_Sociology`, `AECC_English`, `AECC_History`, `AECC_Philosophy`, `AECC_Pol_Science`, `AECC_Sociology`, `Hon_Sub_1`, `Hon_Sub_2`, `Hon_Sub_3`, `Hon_Sub_4`, `Hon_Sub_5`, `General_Course_1`, `General_Course_2`, `General_Course_3`, `General_Course_4`, `General_Course_5`, `created_at`, `updated_at`) VALUES
+(1, 8, 'RAJ', '768677677877', 'B+', 'irudayan111@gmail.com', '27.06.2023', 'savariyappan', 'Thripattur', 'Buddhist', '08760870314', '08760870314', 'cooli', 'cooli', 'Thripattur', 'Visuvasampatti', 'Thripattur', '8760870314', 'Thripattur', 'sc', '635307', 'Male', 'India', 'Maharastra', '1998', '3457', '565', 'Thripattur', 'Thripattur', '2003', '67', '634', '56', 'Thripattur', 'dominicc savio', 'sacred heart college', '12', 'Thripattur', 'Thripattur', '9042379218', '5/08/2003', '12', '21', '23', '34', '34', '66', 'A+', 'church.jpeg', 'bg.png', NULL, 'bg.png', 'bg.png', NULL, 'DSE_English4', 'DSE_English4', 'DSE_English', 'DSE_English', 'DSE_English2', 'DSE_English4', 'DSE_English4', 'DSE_English', NULL, 'DSE_English', 'DSE_English3', 'DSE_English4', 'DSE_English4', 'DSE_English', 'DSE_English', 'DSE_English4', 'DSE_English4', 'DSE_English', 'DSE_English', 'DSE_English', 'bg.png', 'rettyty', 'bg.png', 'bg.png', 'bg.png', 'bg.png', 'bg.png', 'bg.png', 'bg.png', 'bg.png', '2023-06-26 11:32:51', '2023-06-26 22:42:32'),
+(2, 9, 'raj', '08760870314', 'B+', 'irudayan111@gmail.com', '29.06.2023', 'savariyappan', 'Thripattur', 'Hindu', '9042379218', '08760870314', 'manager', 'manager', 'Thripattur', 'thruvannamalai', 'raj', '8760870314', 'raj', 'bc', '635307', 'Female', 'America', 'TamilNadu', '1998', '64', '567', '67', 'board', '2003', '67', '634', '56', 'board', 'dominicc savio', 'sacred heart college', '12', 'Thripattur', 'Thripattur', '9042379218', '5/08/2003', NULL, '21', '23', '34', '34', '66', 'A+', 'bg.png', 'வி.மாதேப்பள்ளி.png', 'வி.மாதேப்பள்ளி.png', 'வி.மாதேப்பள்ளி.png', 'பெரிய ஏறிகோடி.jpg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-06-27 03:26:05', '2023-06-27 03:26:05');
 
 -- --------------------------------------------------------
 
@@ -132,7 +162,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (3, '2014_10_12_100000_create_password_resets_table', 1),
 (4, '2019_08_19_000000_create_failed_jobs_table', 1),
 (5, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-(8, '2023_06_22_091156_create_admisionforms_table', 2);
+(12, '2023_06_22_091156_create_admisionforms_table', 2);
 
 -- --------------------------------------------------------
 
@@ -263,7 +293,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `admisionforms`
 --
 ALTER TABLE `admisionforms`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -275,7 +305,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
