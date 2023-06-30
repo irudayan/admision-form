@@ -1,45 +1,49 @@
 @extends('layouts.admin')
 
 @section('content')
-    @if (session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
-        </div>
-    @endif
 
+    <style>
+        .add-product a{
+            top: 26px;
+
+        }
+        </style>
+   
+   @php
+   $usertype = Auth::user()->usertype;
+   @endphp
 
     <div class="single-pro-review-area mt-t-30 mg-b-15">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="product-payment-inner-st">
-                        <ul id="myTabedu1" class="tab-review-design">
-                            <li class="active"><a href="#description">Admision Form</a></li>
-                            {{-- <li><a href="#reviews"> Status</a></li> --}}
-
-                        </ul>
+                     
                         <div id="myTabContent" class="tab-content custom-product-edit">
                             <div class="product-tab-list tab-pane fade active in" id="description">
                                 <div class="row">
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                       
                                         <div class="review-content-section">
+                                          
                                             <div id="dropzone1" class="pro-ad">
-
+                                               <br>
+                                               
+                                               
                                                 <form method="GET" action="{{ url('/admisionform-view') }}"
                                                     class="dropzone dropzone-custom needsclick add-professors"
                                                     enctype="multipart/form-data">
                                                     @csrf
                                                     <input type="hidden" name="id" id="id"
                                                         value="{{ $form->user_id }}">
+                                                        <br>
                                                     <div class="row">
-                                                        {{-- left --}}
-
                                                       
-                                                        {{-- "{{ asset('logo/logo.JPG') }} --}}
-
-
-
+                                                        <div class="add-product">
+                                                            <a href="{{ url('formPdf', $form->id) }}">PDF</a>
+                                                        </div>
                                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                           
                                                             <div class="form-group">
                                                                 <input name="fullname" type="text" class="form-control"
                                                                     value="{{ $form->fullname }}" placeholder="Full Name"
@@ -49,27 +53,7 @@
                                                                 <input name="country" type="text" class="form-control"
                                                                 value="{{ $form->country }}" placeholder="country"
                                                                 disabled>
-                                                                {{-- <select name="country" class="form-control">
-                                                                    <option value="none" disabled>Select country</option>
-                                                                    <option value="India"
-                                                                        {{ $form->country == 'India' ? 'selected' : '' }}>
-                                                                        India</option>
-                                                                    <option value="Pakistan"
-                                                                        {{ $form->country == 'Pakistan' ? 'selected' : '' }}>
-                                                                        Pakistan</option>
-                                                                    <option value="America"
-                                                                        {{ $form->country == 'America' ? 'selected' : '' }}>
-                                                                        America</option>
-                                                                    <option value="China"
-                                                                        {{ $form->country == 'China' ? 'selected' : '' }}>
-                                                                        China</option>
-                                                                    <option value="Dubai"
-                                                                        {{ $form->country == 'Dubai ' ? 'selected' : '' }}>
-                                                                        Dubai</option>
-                                                                    <option value="Nepal"
-                                                                        {{ $form->country == 'Nepal' ? 'selected' : '' }}>
-                                                                        Nepal</option>
-                                                                </select> --}}
+                                                               
                                                             </div>
                                                             <div class="form-group">
                                                                 <input name="mobileno" type="text" class="form-control"
@@ -120,24 +104,6 @@
                                                                 <input name="state" type="text" class="form-control"
                                                                 value="{{ $form->state }}" placeholder="state"
                                                                 disabled>
-
-                                                                {{-- <select name="state" class="form-control">
-                                                                    <option value="none" selected="" disabled="">
-                                                                        Select state</option>
-                                                                    <option value="Gujarat"
-                                                                        {{ $form->state == 'Gujarat' ? 'selected' : '' }}>
-                                                                        Gujarat</option>
-                                                                    <option value="Maharastra"
-                                                                        {{ $form->state == 'Maharastra' ? 'selected' : '' }}>
-                                                                        Maharastra</option>
-                                                                    <option value="Rajastan"
-                                                                        {{ $form->state == 'Rajastan' ? 'selected' : '' }}>
-                                                                        Rajastan</option>
-                                                                    <option value="TamilNadu"
-                                                                        {{ $form->state == 'TamilNadu' ? 'selected' : '' }}>
-                                                                        TamilNadu</option>
-                                                                </select> --}}
-
 
                                                             </div>
 
@@ -236,71 +202,21 @@
                                                                 <input name="gender" type="text" class="form-control"
                                                                 value="{{ $form->gender }}" placeholder="Gender"
                                                                 disabled>
-                                                                {{-- <select name="gender" class="form-control">
-                                                                    <option value="">
-                                                                        Select Gender</option>
-                                                                    <option value="Male"
-                                                                        {{ $form->gender == 'Male' ? 'selected' : '' }}>
-                                                                        Male</option>
-                                                                    <option value="Female"
-                                                                        {{ $form->gender == 'Female' ? 'selected' : '' }}>
-                                                                        Female</option>
-                                                                </select> --}}
+                                                              
                                                             </div>
 
                                                             <div class="form-group">
                                                                 <input name="bloodgroup" type="text" class="form-control"
                                                                 value="{{ $form->bloodgroup }}" placeholder="Blood Group"
                                                                 disabled>
-                                                                {{-- <select name="bloodgroup" class="form-control">
-                                                                    <option value="">Select Blood Group</option>
-                                                                    <option value="A+"
-                                                                        {{ $form->bloodgroup == 'A+' ? 'selected' : '' }}>
-                                                                        A+</option>
-                                                                    <option value="A-"
-                                                                        {{ $form->bloodgroup == 'A-' ? 'selected' : '' }}>
-                                                                        A-</option>
-                                                                    <option value="B+"
-                                                                        {{ $form->bloodgroup == 'B+' ? 'selected' : '' }}>
-                                                                        B+</option>
-                                                                    <option value="AB+"
-                                                                        {{ $form->bloodgroup == 'AB+' ? 'selected' : '' }}>
-                                                                        AB+</option>
-                                                                    <option value="AB-"
-                                                                        {{ $form->bloodgroup == 'AB-' ? 'selected' : '' }}>
-                                                                        AB-</option>
-                                                                    <option value="O+"
-                                                                        {{ $form->bloodgroup == 'O+' ? 'selected' : '' }}>
-                                                                        O+</option>
-                                                                    <option value="O-"
-                                                                        {{ $form->bloodgroup == 'O-' ? 'selected' : '' }}>
-                                                                        O-</option>
-                                                                </select> --}}
+                                                             
                                                             </div>
 
                                                             <div class="form-group">
                                                                 <input name="religion" type="text" class="form-control"
                                                                 value="{{ $form->religion }}" placeholder="Religion"
                                                                 disabled>
-                                                                {{-- <select name="religion" class="form-control">
-                                                                    <option value="">
-                                                                        Select Religion</option>
-                                                                    <option value="Christian"
-                                                                        {{ $form->religion == 'Christian' ? 'selected' : '' }}>
-                                                                        Christian</option>
-                                                                    <option value="Hindu"
-                                                                        {{ $form->religion == 'Hindu' ? 'selected' : '' }}>
-                                                                        Hindu</option>
-                                                                    <option value="Muslim"
-                                                                        {{ $form->religion == 'Muslim' ? 'selected' : '' }}>
-                                                                        Muslim</option>
-                                                                    <option value="Buddhist"
-                                                                        {{ $form->religion == 'Buddhist' ? 'selected' : '' }}>
-                                                                        Buddhist</option>
-                                                                    <option value="Others"
-                                                                        {{ $form->religion == 'Others' ? 'selected' : '' }}>
-                                                                        Others</option>
-                                                                </select> --}}
+                                                           
                                                             </div>
 
 
@@ -438,16 +354,14 @@
                                                                                 <th>DSE-Philosophy</th>
                                                                                 <th>DSE-Pol-Science</th>
                                                                                 <th>DSE-Sociology</th>
-                                                                                {{-- <th>Generl: English I &II 
-                                                                                    DSC I&II A,B, MIL-I,II
-                                                                                    </th> --}}
+                                                                           
                                                                             </tr>
                                                                         </thead>
                                                                         <tbody>
                                                                             <tr>
                                                                                 <td> <h5 style="text-align: left">DSE</h5></td>
                                                                                 <td>
-                                                                                    <input type="text" class="form-control" name="DSE_English" placeholder="E1.English">
+                                                                                    <input type="text" class="form-control" name="DSE_English" value="{{ $form->DSE_English }}" placeholder="E1.English" disabled>
                                                                                 </td>
                                                                                 <td>
                                                                                     <input type="text" class="form-control" name="DSE_History"  value="{{ $form->DSE_History }}" placeholder="E1.History" disabled>
@@ -484,9 +398,7 @@
                                                                                 <td>
                                                                                     <input type="text" class="form-control" name="GE_Sociology"  value="{{ $form->GE_Sociology }}" placeholder="E2.Sociology" disabled>
                                                                                 </td>
-                                                                                {{-- <td>
-                                                                                    <input type="text" class="form-control" name="previousgrade" placeholder="Grade">
-                                                                                </td> --}}
+                                                                             
                                                                             </tr>
                                                                         </tbody>
                                                                         <tbody>
@@ -507,9 +419,7 @@
                                                                                 <td>
                                                                                     <input type="text" class="form-control" name="SEC_Sociology"  value="{{ $form->SEC_Sociology }}" placeholder="E3.Sociology" disabled>
                                                                                 </td>
-                                                                                {{-- <td>
-                                                                                    <input type="text" class="form-control" name="previousgrade" placeholder="Grade">
-                                                                                </td> --}}
+                                                                          
                                                                             </tr>
                                                                         </tbody>
                                                                         <tbody>
@@ -530,9 +440,7 @@
                                                                                 <td>
                                                                                     <input type="text" class="form-control" name="AECC_Sociology"  value="{{ $form->AECC_Sociology }}" placeholder="E4.Sociology" disabled>
                                                                                 </td>
-                                                                                {{-- <td>
-                                                                                    <input type="text" class="form-control" name="previousgrade" placeholder="Grade">
-                                                                                </td> --}}
+                                                                            
                                                                             </tr>
                                                                         </tbody>
                                                                     </table>
@@ -567,19 +475,19 @@
                                                                             <tr>
                                                                                 <td> <h5 style="text-align: left">Honours Subject</h5></td>
                                                                                 <td>
-                                                                                    <input type="text" class="form-control" name="Hon_Sub_1"  value="{{ $form->hsslcmarksheet }}" placeholder="Hon-Sub-1" disabled>
+                                                                                    <input type="text" class="form-control" name="Hon_Sub_1"  value="{{ $form->Hon_Sub_1 }}" placeholder="Hon-Sub-1" disabled>
                                                                                 </td>
                                                                                 <td>
-                                                                                    <input type="text" class="form-control" name="Hon_Sub_2"  value="{{ $form->hsslcmarksheet }}" placeholder="Hon-Sub-2" disabled>
+                                                                                    <input type="text" class="form-control" name="Hon_Sub_2"  value="{{ $form->Hon_Sub_2 }}" placeholder="Hon-Sub-2" disabled>
                                                                                 </td>
                                                                                 <td>
-                                                                                    <input type="text" class="form-control" name="Hon_Sub_3"  value="{{ $form->hsslcmarksheet }}" placeholder="Hon-Sub-3" disabled>
+                                                                                    <input type="text" class="form-control" name="Hon_Sub_3"  value="{{ $form->Hon_Sub_3 }}" placeholder="Hon-Sub-3" disabled>
                                                                                 </td>
                                                                                 <td>
-                                                                                    <input type="text" class="form-control" name="Hon_Sub_4"  value="{{ $form->hsslcmarksheet }}" placeholder="Hon-Sub-4" disabled>
+                                                                                    <input type="text" class="form-control" name="Hon_Sub_4"  value="{{ $form->Hon_Sub_4 }}" placeholder="Hon-Sub-4" disabled>
                                                                                 </td>
                                                                                 <td>
-                                                                                    <input type="text" class="form-control" name="Hon_Sub_5"  value="{{ $form->hsslcmarksheet }}" placeholder="Hon-Sub-4" disabled>
+                                                                                    <input type="text" class="form-control" name="Hon_Sub_5"  value="{{ $form->Hon_Sub_5 }}" placeholder="Hon-Sub-4" disabled>
                                                                                 </td>
                                                                                
                                                                                
@@ -591,19 +499,19 @@
                                                                                 <td> <h5 style="text-align: left">General Course</h5></td>
                                                                                 
                                                                                 <td>
-                                                                                    <input type="text" class="form-control" name="General_Course_1"  value="{{ $form->hsslcmarksheet }}" placeholder="General-Course-1" disabled>
+                                                                                    <input type="text" class="form-control" name="General_Course_1"  value="{{ $form->General_Course_1 }}" placeholder="General-Course-1" disabled>
                                                                                 </td>
                                                                                 <td>
-                                                                                    <input type="text" class="form-control" name="General_Course_2"  value="{{ $form->hsslcmarksheet }}" placeholder="General-Course-2" disabled>
+                                                                                    <input type="text" class="form-control" name="General_Course_2"  value="{{ $form->General_Course_2 }}" placeholder="General-Course-2" disabled>
                                                                                 </td>
                                                                                 <td>
-                                                                                    <input type="text" class="form-control" name="General_Course_3"  value="{{ $form->hsslcmarksheet }}" placeholder="General-Course-3" disabled>
+                                                                                    <input type="text" class="form-control" name="General_Course_3"  value="{{ $form->General_Course_3 }}" placeholder="General-Course-3" disabled>
                                                                                 </td>
                                                                                 <td>
-                                                                                    <input type="text" class="form-control" name="General_Course_4"  value="{{ $form->hsslcmarksheet }}" placeholder="General-Course-4" disabled>
+                                                                                    <input type="text" class="form-control" name="General_Course_4"  value="{{ $form->General_Course_4 }}" placeholder="General-Course-4" disabled>
                                                                                 </td>
                                                                                 <td>
-                                                                                    <input type="text" class="form-control" name="General_Course_5"  value="{{ $form->hsslcmarksheet }}" placeholder="General-Course-5" disabled>
+                                                                                    <input type="text" class="form-control" name="General_Course_5"  value="{{ $form->General_Course_5 }}" placeholder="General-Course-5" disabled>
                                                                                 </td>
                                                                                
                                                                             </tr>
@@ -612,64 +520,39 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        {{-- <center>
-                                                            <h4>File Upload</h4>
-                                                            <center> --}}
-                                                                {{-- <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                                                    <div class="form-group">
-                                                                        <label for="photo" class="control-label"
-                                                                            style="text-align: left">Photo</label>
-                                                                        <input type="file" class="form-control"
-                                                                            id="photo" name="photo"
-                                                                            value="{{ $form->photo }}" accept="image/*">
-                                                                            <a href="{{ asset('photo/' . $form->photo) }}"
-                                                                                target="_blank"
-                                                                                class="btn btn-sm btn-secondary">
-                                                                                <i class="fa fa-solid fa-file"></i>
-                                                                                <span
-                                                                                    class="img-title">{{ $form->photo }}</span>
-                                                                            </a>
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                        <label for="hsslcmarksheet"
-                                                                            class="control-label">HSLC & HSSLC Examination
-                                                                            Mark Sheets</label>
-                                                                        <input type="file" class="form-control"
-                                                                            id="hsslcmarksheet" name="hsslcmarksheet"
-                                                                            value="{{ $form->hsslcmarksheet }}"
-                                                                            accept="image/*">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                                                    <div class="form-group">
-                                                                        <label for="hsslcadmitcard"
-                                                                            class="control-label">HSSLC & HSSLC Examination
-                                                                            Admit Card</label>
-                                                                        <input type="file" class="form-control"
-                                                                            id="hsslcadmitcard" name="hsslcadmitcard"
-                                                                            placeholder="photo" accept="image/*"
-                                                                            value="{{ $form->hsslcadmitcard }}">
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                        <label for="birthcertificate"
-                                                                            class="control-label">Birth Certificate</label>
-                                                                        <input type="file" class="form-control"
-                                                                            id="birthcertificate" name="birthcertificate"
-                                                                            value="{{ $form->birthcertificate }}"
-                                                                            accept="image/*">
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                        <label for="communitycertificate"
-                                                                            class="control-label">Schedule Tribe/Community
-                                                                            Certificate</label>
-                                                                        <input type="file" class="form-control"
-                                                                            value="{{ $form->communitycertificate }}"
-                                                                            name="communitycertificate" accept="image/*">
-                                                                    </div>
-                                                                </div> --}}
+                                 
+                                                  
+                                                              
                                                     </div>
 
                                                 </form>
+
+                                                @if($usertype=='Admin')
+                                                <center>
+                                                    <h4>STATUS</h4>
+                                                </center>
+                                                <form method="POST" action="{{ url('/updateStatus') }}" class="dropzone dropzone-custom needsclick add-professors" enctype="multipart/form-data">
+                                                    @csrf
+                                                    <input type="hidden" name="id" value="{{ $form->id }}">
+                                                    <div class="form-group">
+                                                        <select name="status" class="form-control">
+                                                            <option value="Pending">Pending</option>
+                                                            <option value="Approved">Approved</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <div class="payment-adress">
+                                                                <a class="btn btn-default btn-close" href="{{ route('home') }}">Cancel</a>
+                                                                <button type="submit" class="btn btn-primary waves-effect waves-light">Save</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            @endif
+                                            
+
+                                              
                                             </div>
                                         </div>
                                     </div>
@@ -681,6 +564,8 @@
             </div>
         </div>
     </div>
+
+   
 
     <div id="extra-area-chart" style="height: 180px;"></div>
 

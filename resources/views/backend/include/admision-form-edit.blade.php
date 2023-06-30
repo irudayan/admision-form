@@ -31,6 +31,7 @@
                                                     @csrf
                                                     <input type="hidden" name="id" id="id"
                                                         value="{{ $formedit->id }}">
+                                                    <input type="hidden" name="status" value="{{ $formedit->status  }}">
                                                     <div class="row">
                                                         {{-- left --}}
                                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -762,10 +763,11 @@
                                                     <div class="row">
                                                         <div class="col-lg-12">
                                                             <div class="payment-adress">
-                                                                <a href="{{ route('status') }}">
+                                                                <a  class="btn btn-default btn-close" href="{{ route('status') }}" class="btn btn-default">Cancel</a>
+                                                                {{-- <a href="{{ route('home') }}">
                                                                     <button
                                                                         class="btn btn-default btn-close">Cancel</button>
-                                                                </a>
+                                                                </a> --}}
                                                                 <button type="submit"
                                                                     class="btn btn-primary waves-effect waves-light">Update</button>
                                                             </div>

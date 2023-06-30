@@ -80,7 +80,7 @@
             <td rowspan="3" width="25%" style="text-align: center; padding: 3px;">
                 {{-- <img src="{{ asset('logo/logo.jpg') }}" alt="Image" width="120"
                     height="120"> --}}
-                    <img src="{{ asset('photo/' . $data->photo) }}" alt="Image" width="120" height="120">
+                    <img src="{{ public_path('logo.jpg') }}" alt="Image" width="120" height="120">
 
             </td>
             

@@ -24,9 +24,14 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('dashboard', [App\Http\Controllers\HomeController::class, 'dashboard'])->name('dashboard');
 
 // Admision form
-Route::get('admin-status', [App\Http\Controllers\AdmisionformController::class, 'index'])->name('admin-status');
+
+Route::post('/updateStatus', [App\Http\Controllers\AdmisionformController::class, 'updateStatus'])->name('updateStatus');
+
+
+// Route::get('admision-form', [App\Http\Controllers\AdmisionformController::class, 'index'])->name('admin-status');
 Route::get('status', [App\Http\Controllers\AdmisionformController::class, 'status'])->name('status');
 Route::get('admisionform-view/{id}', [App\Http\Controllers\AdmisionformController::class, 'formview'])->name('admisionform-view');
 Route::post('formstore', [App\Http\Controllers\AdmisionformController::class, 'formstore'])->name('formstore');
@@ -35,6 +40,9 @@ Route::post('formupdate', [App\Http\Controllers\AdmisionformController::class, '
 
 // pdf
 Route::get('formPdf/{id}',[App\Http\Controllers\AdmisionformController::class, 'formPdf'])->name('formPdf');
+
+// excel
+Route::get('export', [App\Http\Controllers\ExportController::class, 'exportForms']);
 
 // manage users
 Route::get('/manageusers', [App\Http\Controllers\ManageusersController::class, 'managerusers'])->name('managerusers');

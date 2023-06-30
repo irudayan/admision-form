@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Models\Admisionform;
 
 class HomeController extends Controller
 {
@@ -24,11 +25,29 @@ class HomeController extends Controller
     public function index()
     {
          $usertype = Auth::user()->usertype;
-  
+
             if($usertype == 'Admin') {
-                return view('backend.include.home');
+
+                $allData = Admisionform::all();
+
+                $totalForm = Admisionform::count();
+                $pendingForm = Admisionform::where('status','Pending')->count();
+                $approvedForm = Admisionform::where('status','Approved')->count();
+
+                return view('backend.include.dashboard',compact('usertype','allData','totalForm',
+                            'pendingForm','approvedForm'));
             }else{
-                return redirect()->route('status');
+
+                $userId = Admisionform::where('user_id', Auth::user()->id)->first();
+                // dd($userId);
+                if (empty($userId)) {
+                    return view ('backend.include.admision-form',compact('usertype'));
+                } else {
+                    return view('backend.include.status',compact('usertype','userId'));
+                  
+                }
+
+               
             }
             
     }

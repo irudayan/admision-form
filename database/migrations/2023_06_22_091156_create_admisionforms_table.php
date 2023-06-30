@@ -96,6 +96,7 @@ return new class extends Migration
             $table->text('General_Course_3')->nullable();
             $table->text('General_Course_4')->nullable();
             $table->text('General_Course_5')->nullable();
+            $table->enum('status', ['Pending', 'Approved'])->default('Pending');
             $table->timestamps();
         });
     }

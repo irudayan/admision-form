@@ -15,14 +15,12 @@ class AdmisionformController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
-    {
-        $usertype = Auth::user()->usertype;
-        $userId = Admisionform::where('user_id', Auth::user()->id)->all();
-dd($userId);
-
-        return view('backend.include.admin-status');
-    }
+//     public function index()
+//     {
+//         $usertype = Auth::user()->usertype;
+// dd('hjello');
+//         return view('backend.include.status',compact('usertype'));
+//     }
 
     /**
      * Show the form for creating a new resource.
@@ -37,8 +35,10 @@ dd($userId);
         $userId = Admisionform::where('user_id', Auth::user()->id)->first();
 
         if (empty($userId)) {
+            // dd('in');
             return view ('backend.include.admision-form');
         } else {
+            // dd('heernf');
         return view('backend.include.status', compact('userId'));
           
         }
@@ -55,82 +55,83 @@ dd($userId);
 
         $addform = new Admisionform();
         $addform->user_id = $request->user()->id;
-        $addform->fullname = $request->input('fullname');
-        $addform->mobileno = $request->input('mobileno');
-        $addform->dateofbirth = $request->input('dateofbirth');
-        $addform->bloodgroup = $request->input('bloodgroup');
-        $addform->email = $request->input('email');
-        $addform->fathername = $request->input('fathername');
-        $addform->mothername = $request->input('mothername');
-        $addform->religion = $request->input('religion');
-        $addform->motherphone = $request->input('motherphone');
-        $addform->fatherphone = $request->input('fatherphone');
-        $addform->fatheroccupation = $request->input('fatheroccupation');
-        $addform->motheroccupation = $request->input('motheroccupation');
-        $addform->permanentaddress = $request->input('permanentaddress');
-        $addform->correspondentaddress = $request->input('correspondentaddress');
-        $addform->localguardianname = $request->input('localguardianname');
-        $addform->localguardianno = $request->input('localguardianno');
-        $addform->category = $request->input('category');
-        $addform->tribe = $request->input('tribe');
-        $addform->postcode = $request->input('postcode');
-        $addform->gender = $request->input('gender');
-        $addform->country = $request->input('country');
-        $addform->state = $request->input('state');
-        $addform->hslcyear = $request->input('hslcyear');
-        $addform->hslcrollno = $request->input('hslcrollno');
-        $addform->hslcdivision = $request->input('hslcdivision');
-        $addform->hslcpercentage = $request->input('hslcpercentage');
-        $addform->hslcboard = $request->input('hslcboard');
-        $addform->hsslcyear = $request->input('hsslcyear');
-        $addform->hsslcrollno = $request->input('hsslcrollno');
-        $addform->hsslcdivision = $request->input('hsslcdivision');
-        $addform->hsslcpercentage = $request->input('hsslcpercentage');
-        $addform->hsslcboard = $request->input('hsslcboard');
-        $addform->schoolname = $request->input('schoolname');
-        $addform->collegename = $request->input('collegename');
-        $addform->schoollastattended = $request->input('schoollastattended');
-        $addform->collegelastattended = $request->input('collegelastattended');
-        $addform->boarduniversity = $request->input('boarduniversity');
-        $addform->cerificateno = $request->input('cerificateno');
-        $addform->certificatedate = $request->input('certificatedate');
-        $addform->subject1 = $request->input('subject1');
-        $addform->subject2 = $request->input('subject2');
-        $addform->subject3 = $request->input('subject3');
-        $addform->subject4 = $request->input('subject4');
-        $addform->subject5 = $request->input('subject5');
-        $addform->previouspercentage = $request->input('previouspercentage');
-        $addform->previousgrade = $request->input('previousgrade');
-        $addform->DSE_English = $request->input('DSE_English');
-        $addform->DSE_History = $request->input('DSE_History');
-        $addform->DSE_Philosophy = $request->input('DSE_Philosophy');
-        $addform->DSE_Pol_Science = $request->input('DSE_Pol_Science');
-        $addform->DSE_Sociology = $request->input('DSE_Sociology');
-        $addform->GE_English = $request->input('GE_English');
-        $addform->GE_History = $request->input('GE_History');
-        $addform->GE_Philosophy = $request->input('GE_Philosophy');
-        $addform->GE_Pol_Science = $request->input('GE_Pol_Science');
-        $addform->GE_Sociology = $request->input('GE_Sociology');
-        $addform->SEC_English = $request->input('SEC_English');
-        $addform->SEC_History = $request->input('SEC_History');
-        $addform->SEC_Philosophy = $request->input('SEC_Philosophy');
-        $addform->SEC_Pol_Science = $request->input('SEC_Pol_Science');
-        $addform->SEC_Sociology = $request->input('SEC_Sociology');
-        $addform->AECC_English = $request->input('AECC_English');
-        $addform->AECC_History = $request->input('AECC_History');
-        $addform->AECC_Philosophy = $request->input('AECC_Philosophy');
-        $addform->AECC_Pol_Science = $request->input('AECC_Pol_Science');
-        $addform->AECC_Sociology = $request->input('AECC_Sociology');
-        $addform->Hon_Sub_1 = $request->input('Hon_Sub_1');
-        $addform->Hon_Sub_2 = $request->input('Hon_Sub_2');
-        $addform->Hon_Sub_3 = $request->input('Hon_Sub_3');
-        $addform->Hon_Sub_4 = $request->input('Hon_Sub_4');
-        $addform->Hon_Sub_5 = $request->input('Hon_Sub_5');
-        $addform->General_Course_1 = $request->input('General_Course_1');
-        $addform->General_Course_2 = $request->input('General_Course_2');
-        $addform->General_Course_3 = $request->input('General_Course_3');
-        $addform->General_Course_4 = $request->input('General_Course_4');
-        $addform->General_Course_5 = $request->input('General_Course_5');
+        $addform->fullname = $request->fullname;
+        $addform->mobileno = $request->mobileno;
+        $addform->dateofbirth = $request->dateofbirth;
+        $addform->bloodgroup = $request->bloodgroup;
+        $addform->email = $request->email;
+        $addform->fathername = $request->fathername;
+        $addform->mothername = $request->mothername;
+        $addform->religion = $request->religion;
+        $addform->motherphone = $request->motherphone;
+        $addform->fatherphone = $request->fatherphone;
+        $addform->fatheroccupation = $request->fatheroccupation;
+        $addform->motheroccupation = $request->motheroccupation;
+        $addform->permanentaddress = $request->permanentaddress;
+        $addform->correspondentaddress = $request->correspondentaddress;
+        $addform->localguardianname = $request->localguardianname;
+        $addform->localguardianno = $request->localguardianno;
+        $addform->category = $request->category;
+        $addform->tribe = $request->tribe;
+        $addform->postcode = $request->postcode;
+        $addform->gender = $request->gender;
+        $addform->country = $request->country;
+        $addform->state = $request->state;
+        $addform->hslcyear = $request->hslcyear;
+        $addform->hslcrollno = $request->hslcrollno;
+        $addform->hslcdivision = $request->hslcdivision;
+        $addform->hslcpercentage = $request->hslcpercentage;
+        $addform->hslcboard = $request->hslcboard;
+        $addform->hsslcyear = $request->hsslcyear;
+        $addform->hsslcrollno = $request->hsslcrollno;
+        $addform->hsslcdivision = $request->hsslcdivision;
+        $addform->hsslcpercentage = $request->hsslcpercentage;
+        $addform->hsslcboard = $request->hsslcboard;
+        $addform->schoolname = $request->schoolname;
+        $addform->collegename = $request->collegename;
+        $addform->schoollastattended = $request->schoollastattended;
+        $addform->collegelastattended = $request->collegelastattended;
+        $addform->boarduniversity = $request->boarduniversity;
+        $addform->cerificateno = $request->cerificateno;
+        $addform->certificatedate = $request->certificatedate;
+        $addform->subject1 = $request->subject1;
+        $addform->subject2 = $request->subject2;
+        $addform->subject3 = $request->subject3;
+        $addform->subject4 = $request->subject4;
+        $addform->subject5 = $request->subject5;
+        $addform->previouspercentage = $request->previouspercentage;
+        $addform->previousgrade = $request->previousgrade;
+        $addform->DSE_English = $request->DSE_English;
+        $addform->DSE_History = $request->DSE_History;
+        $addform->DSE_Philosophy = $request->DSE_Philosophy;
+        $addform->DSE_Pol_Science = $request->DSE_Pol_Science;
+        $addform->DSE_Sociology = $request->DSE_Sociology;
+        $addform->GE_English = $request->GE_English;
+        $addform->GE_History = $request->GE_History;
+        $addform->GE_Philosophy = $request->GE_Philosophy;
+        $addform->GE_Pol_Science = $request->GE_Pol_Science;
+        $addform->GE_Sociology = $request->GE_Sociology;
+        $addform->SEC_English = $request->SEC_English;
+        $addform->SEC_History = $request->SEC_History;
+        $addform->SEC_Philosophy = $request->SEC_Philosophy;
+        $addform->SEC_Pol_Science = $request->SEC_Pol_Science;
+        $addform->SEC_Sociology = $request->SEC_Sociology;
+        $addform->AECC_English = $request->AECC_English;
+        $addform->AECC_History = $request->AECC_History;
+        $addform->AECC_Philosophy = $request->AECC_Philosophy;
+        $addform->AECC_Pol_Science = $request->AECC_Pol_Science;
+        $addform->AECC_Sociology = $request->AECC_Sociology;
+        $addform->Hon_Sub_1 = $request->Hon_Sub_1;
+        $addform->Hon_Sub_2 = $request->Hon_Sub_2;
+        $addform->Hon_Sub_3 = $request->Hon_Sub_3;
+        $addform->Hon_Sub_4 = $request->Hon_Sub_4;
+        $addform->Hon_Sub_5 = $request->Hon_Sub_5;
+        $addform->General_Course_1 = $request->General_Course_1;
+        $addform->General_Course_2 = $request->General_Course_2;
+        $addform->General_Course_3 = $request->General_Course_3;
+        $addform->General_Course_4 = $request->General_Course_4;
+        $addform->General_Course_5 = $request->General_Course_5;
+        // $addform->status = $request->status;
 
         
 
@@ -173,52 +174,31 @@ dd($userId);
     /**
      * Display the specified resource.
      */
-    public function formview(Admisionform $admisionform)
+    public function formview(Request $request)
     {
-
-        $form = Admisionform::where('user_id', Auth::user()->id)->first();
-
-        if (empty($form)) {
-            return view ('backend.include.admision-form');
-        } else {
-            $form->DSE_English = $form->DSE_English ?? "Nill";
-            $form->DSE_History = $form->DSE_History ?? "Nill";
-            $form->DSE_Philosophy = $form->DSE_Philosophy ?? "Nill";
-            $form->DSE_Pol_Science = $form->DSE_Pol_Science ?? "Nill";
-            $form->DSE_Sociology = $form->DSE_Sociology ?? "Nill";
-            $form->GE_English = $form->GE_English ?? "Nill";
-            $form->GE_History = $form->GE_History ?? "Nill";
-            $form->GE_Philosophy = $form->GE_Philosophy ?? "Nill";
-            $form->GE_Pol_Science = $form->GE_Pol_Science ?? "Nill";
-            $form->SEC_English = $form->SEC_English ?? "Nill";
-            $form->SEC_History = $form->SEC_History ?? "Nill";
-            $form->SEC_Philosophy = $form->SEC_Philosophy ?? "Nill";
-            $form->SEC_Pol_Science = $form->SEC_Pol_Science ?? "Nill";
-            $form->SEC_Sociology = $form->SEC_Sociology ?? "Nill";
-            $form->AECC_English = $form->AECC_English ?? "Nill";
-            $form->AECC_History = $form->AECC_History ?? "Nill";
-            $form->AECC_Philosophy = $form->AECC_Philosophy ?? "Nill";
-            $form->AECC_Pol_Science = $form->AECC_Pol_Science ?? "Nill";
-            $form->AECC_Sociology = $form->AECC_Sociology ?? "Nill";
-            $form->Hon_Sub_1 = $form->Hon_Sub_1 ?? "Nill";
-            $form->Hon_Sub_2 = $form->Hon_Sub_2 ?? "Nill";
-            $form->Hon_Sub_3 = $form->Hon_Sub_3 ?? "Nill";
-            $form->Hon_Sub_4 = $form->Hon_Sub_4 ?? "Nill";
-            $form->Hon_Sub_5 = $form->Hon_Sub_5 ?? "Nill";
-            $form->General_Course_1 = $form->General_Course_1 ?? "Nill";
-            $form->General_Course_2 = $form->General_Course_2 ?? "Nill";
-            $form->General_Course_3 = $form->General_Course_3 ?? "Nill";
-            $form->General_Course_4 = $form->General_Course_4 ?? "Nill";
-            $form->General_Course_5 = $form->General_Course_5 ?? "Nill";
-        return view('backend.include.admision-form-view', compact('form'));
+        $id = $request->id;
+        $form = Admisionform::where('id',$id)->first();
+        $usertype = Auth::user()->usertype;
+  
+        if (empty($form) && $usertype == 'Users') {
             
-        }           
+            return view ('backend.include.admision-form');
+        }else {
+
+            dd($request);
+
+        return view('backend.include.admision-form-view', compact('form'));
     }
+}
+    
 
-    public function formPdf(Admisionform $admisionform)
+    
+
+    public function formPdf(Request $request)
     {
-        $pdfform = Admisionform::where('user_id', Auth::user()->id)->first();
-
+        // $pdfform = Admisionform::where('user_id', Auth::user()->id)->first();
+        $id = $request->id;
+        $pdfform = Admisionform::where('id',$id)->first();
         $pdfform->DSE_English = $pdfform->DSE_English ?? "Nill";
         $pdfform->DSE_History = $pdfform->DSE_History ?? "Nill";
         $pdfform->DSE_Philosophy = $pdfform->DSE_Philosophy ?? "Nill";
@@ -248,9 +228,7 @@ dd($userId);
         $pdfform->General_Course_3 = $pdfform->General_Course_3 ?? "Nill";
         $pdfform->General_Course_4 = $pdfform->General_Course_4 ?? "Nill";
         $pdfform->General_Course_5 = $pdfform->General_Course_5 ?? "Nill";
-        
-        
-     
+  
         $pdf = PDF::loadView('backend.include.admision-form-pdf', ['data' => $pdfform])->setOptions(['defaultFont' => 'sans-serif']);
         return $pdf->setPaper('a4')->download('application.pdf');
 
@@ -269,90 +247,110 @@ dd($userId);
 
     }
 
+   
+
+   
+
+    public function updateStatus(Request $request)
+    {
+        $id = $request->iid;
+     
+        $status = $request->status;
+
+        $statusUpdate = Admisionform::where('id', $id)->update(['status' => $status]);
+        return redirect()->route('home')->with('success', 'Admission form Approved successfully.');
+    }
+    
+    
+
+ 
+
 
     public function formupdate(Request $request)
     {
        
         $admisionform = Admisionform::findOrFail($request->id);
         // $admisionform->update($request->all());
+        // dd($admisionform);
         $admisionform->user_id = $request->user()->id;
-        $admisionform->fullname = $request->input('fullname');
-        $admisionform->mobileno = $request->input('mobileno');
-        $admisionform->dateofbirth = $request->input('dateofbirth');
-        $admisionform->bloodgroup = $request->input('bloodgroup');
-        $admisionform->email = $request->input('email');
-        $admisionform->fathername = $request->input('fathername');
-        $admisionform->mothername = $request->input('mothername');
-        $admisionform->religion = $request->input('religion');
-        $admisionform->motherphone = $request->input('motherphone');
-        $admisionform->fatherphone = $request->input('fatherphone');
-        $admisionform->fatheroccupation = $request->input('fatheroccupation');
-        $admisionform->motheroccupation = $request->input('motheroccupation');
-        $admisionform->permanentaddress = $request->input('permanentaddress');
-        $admisionform->correspondentaddress = $request->input('correspondentaddress');
-        $admisionform->localguardianname = $request->input('localguardianname');
-        $admisionform->localguardianno = $request->input('localguardianno');
-        $admisionform->category = $request->input('category');
-        $admisionform->tribe = $request->input('tribe');
-        $admisionform->postcode = $request->input('postcode');
-        $admisionform->gender = $request->input('gender');
-        $admisionform->country = $request->input('country');
-        $admisionform->state = $request->input('state');
-        $admisionform->hslcyear = $request->input('hslcyear');
-        $admisionform->hslcrollno = $request->input('hslcrollno');
-        $admisionform->hslcdivision = $request->input('hslcdivision');
-        $admisionform->hslcpercentage = $request->input('hslcpercentage');
-        $admisionform->hslcboard = $request->input('hslcboard');
-        $admisionform->hsslcyear = $request->input('hsslcyear');
-        $admisionform->hsslcrollno = $request->input('hsslcrollno');
-        $admisionform->hsslcdivision = $request->input('hsslcdivision');
-        $admisionform->hsslcpercentage = $request->input('hsslcpercentage');
-        $admisionform->hsslcboard = $request->input('hsslcboard');
-        $admisionform->schoolname = $request->input('schoolname');
-        $admisionform->collegename = $request->input('collegename');
-        $admisionform->schoollastattended = $request->input('schoollastattended');
-        $admisionform->collegelastattended = $request->input('collegelastattended');
-        $admisionform->boarduniversity = $request->input('boarduniversity');
-        $admisionform->cerificateno = $request->input('cerificateno');
-        $admisionform->certificatedate = $request->input('certificatedate');
-        $admisionform->subject1 = $request->input('subject1');
-        $admisionform->subject2 = $request->input('subject2');
-        $admisionform->subject3 = $request->input('subject3');
-        $admisionform->subject4 = $request->input('subject4');
-        $admisionform->subject5 = $request->input('subject5');
-        $admisionform->previouspercentage = $request->input('previouspercentage');
-        $admisionform->previousgrade = $request->input('previousgrade');
-        $admisionform->DSE_English = $request->input('DSE_English');
-        $admisionform->DSE_History = $request->input('DSE_History');
-        $admisionform->DSE_Philosophy = $request->input('DSE_Philosophy');
-        $admisionform->DSE_Pol_Science = $request->input('DSE_Pol_Science');
-        $admisionform->DSE_Sociology = $request->input('DSE_Sociology');
-        $admisionform->GE_English = $request->input('GE_English');
-        $admisionform->GE_History = $request->input('GE_History');
-        $admisionform->GE_Philosophy = $request->input('GE_Philosophy');
-        $admisionform->GE_Pol_Science = $request->input('GE_Pol_Science');
-        $admisionform->GE_Sociology = $request->input('GE_Sociology');
-        $admisionform->SEC_English = $request->input('SEC_English');
-        $admisionform->SEC_History = $request->input('SEC_History');
-        $admisionform->SEC_Philosophy = $request->input('SEC_Philosophy');
-        $admisionform->SEC_Pol_Science = $request->input('SEC_Pol_Science');
-        $admisionform->SEC_Sociology = $request->input('SEC_Sociology');
-        $admisionform->AECC_English = $request->input('AECC_English');
-        $admisionform->AECC_History = $request->input('AECC_History');
-        $admisionform->AECC_Philosophy = $request->input('AECC_Philosophy');
-        $admisionform->AECC_Pol_Science = $request->input('AECC_Pol_Science');
-        $admisionform->AECC_Sociology = $request->input('AECC_Sociology');
-        $admisionform->Hon_Sub_1 = $request->input('Hon_Sub_1');
-        $admisionform->Hon_Sub_2 = $request->input('Hon_Sub_2');
-        $admisionform->Hon_Sub_3 = $request->input('Hon_Sub_3');
-        $admisionform->Hon_Sub_4 = $request->input('Hon_Sub_4');
-        $admisionform->Hon_Sub_5 = $request->input('Hon_Sub_5');
-        $admisionform->General_Course_1 = $request->input('General_Course_1');
-        $admisionform->General_Course_2 = $request->input('General_Course_2');
-        $admisionform->General_Course_3 = $request->input('General_Course_3');
-        $admisionform->General_Course_4 = $request->input('General_Course_4');
-        $admisionform->General_Course_5 = $request->input('General_Course_5');
-        $formedit = $admisionform;
+        $admisionform->fullname = $request->fullname;
+        $admisionform->mobileno = $request->mobileno;
+        $admisionform->dateofbirth = $request->dateofbirth;
+        $admisionform->bloodgroup = $request->bloodgroup;
+        $admisionform->email = $request->email;
+        $admisionform->fathername = $request->fathername;
+        $admisionform->mothername = $request->mothername;
+        $admisionform->religion = $request->religion;
+        $admisionform->motherphone = $request->motherphone;
+        $admisionform->fatherphone = $request->fatherphone;
+        $admisionform->fatheroccupation = $request->fatheroccupation;
+        $admisionform->motheroccupation = $request->motheroccupation;
+        $admisionform->permanentaddress = $request->permanentaddress;
+        $admisionform->correspondentaddress = $request->correspondentaddress;
+        $admisionform->localguardianname = $request->localguardianname;
+        $admisionform->localguardianno = $request->localguardianno;
+        $admisionform->category = $request->category;
+        $admisionform->tribe = $request->tribe;
+        $admisionform->postcode = $request->postcode;
+        $admisionform->gender = $request->gender;
+        $admisionform->country = $request->country;
+        $admisionform->state = $request->state;
+        $admisionform->hslcyear = $request->hslcyear;
+        $admisionform->hslcrollno = $request->hslcrollno;
+        $admisionform->hslcdivision = $request->hslcdivision;
+        $admisionform->hslcpercentage = $request->hslcpercentage;
+        $admisionform->hslcboard = $request->hslcboard;
+        $admisionform->hsslcyear = $request->hsslcyear;
+        $admisionform->hsslcrollno = $request->hsslcrollno;
+        $admisionform->hsslcdivision = $request->hsslcdivision;
+        $admisionform->hsslcpercentage = $request->hsslcpercentage;
+        $admisionform->hsslcboard = $request->hsslcboard;
+        $admisionform->schoolname = $request->schoolname;
+        $admisionform->collegename = $request->collegename;
+        $admisionform->schoollastattended = $request->schoollastattended;
+        $admisionform->collegelastattended = $request->collegelastattended;
+        $admisionform->boarduniversity = $request->boarduniversity;
+        $admisionform->cerificateno = $request->cerificateno;
+        $admisionform->certificatedate = $request->certificatedate;
+        $admisionform->subject1 = $request->subject1;
+        $admisionform->subject2 = $request->subject2;
+        $admisionform->subject3 = $request->subject3;
+        $admisionform->subject4 = $request->subject4;
+        $admisionform->subject5 = $request->subject5;
+        $admisionform->previouspercentage = $request->previouspercentage;
+        $admisionform->previousgrade = $request->previousgrade;
+        $admisionform->DSE_English = $request->DSE_English;
+        $admisionform->DSE_History = $request->DSE_History;
+        $admisionform->DSE_Philosophy = $request->DSE_Philosophy;
+        $admisionform->DSE_Pol_Science = $request->DSE_Pol_Science;
+        $admisionform->DSE_Sociology = $request->DSE_Sociology;
+        $admisionform->GE_English = $request->GE_English;
+        $admisionform->GE_History = $request->GE_History;
+        $admisionform->GE_Philosophy = $request->GE_Philosophy;
+        $admisionform->GE_Pol_Science = $request->GE_Pol_Science;
+        $admisionform->GE_Sociology = $request->GE_Sociology;
+        $admisionform->SEC_English = $request->SEC_English;
+        $admisionform->SEC_History = $request->SEC_History;
+        $admisionform->SEC_Philosophy = $request->SEC_Philosophy;
+        $admisionform->SEC_Pol_Science = $request->SEC_Pol_Science;
+        $admisionform->SEC_Sociology = $request->SEC_Sociology;
+        $admisionform->AECC_English = $request->AECC_English;
+        $admisionform->AECC_History = $request->AECC_History;
+        $admisionform->AECC_Philosophy = $request->AECC_Philosophy;
+        $admisionform->AECC_Pol_Science = $request->AECC_Pol_Science;
+        $admisionform->AECC_Sociology = $request->AECC_Sociology;
+        $admisionform->Hon_Sub_1 = $request->Hon_Sub_1;
+        $admisionform->Hon_Sub_2 = $request->Hon_Sub_2;
+        $admisionform->Hon_Sub_3 = $request->Hon_Sub_3;
+        $admisionform->Hon_Sub_4 = $request->Hon_Sub_4;
+        $admisionform->Hon_Sub_5 = $request->Hon_Sub_5;
+        $admisionform->General_Course_1 = $request->General_Course_1;
+        $admisionform->General_Course_2 = $request->General_Course_2;
+        $admisionform->General_Course_3 = $request->General_Course_3;
+        $admisionform->General_Course_4 = $request->General_Course_4;
+        $admisionform->General_Course_5 = $request->General_Course_5;
+        $admisionform->status = $request->status;
+        // $formedit = $admisionform;
 
             if ($request->hasFile('photo')) {
                 $photo = $request->file('photo');
@@ -420,10 +418,12 @@ dd($userId);
             }
         }
         $admisionform->save();
-
+// dd($admisionform);
      return redirect()->route('status')->with('success', 'Admission form has been updated successfully.');
 
     }
+
+ 
 
 
     /**

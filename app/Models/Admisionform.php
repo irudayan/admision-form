@@ -91,7 +91,8 @@ class Admisionform extends Model
                             'General_Course_2',
                             'General_Course_3',
                             'General_Course_4',
-                            'General_Course_5'
+                            'General_Course_5',
+                            'status'
                         ];
 }
 

@@ -6,6 +6,17 @@
             {{ session('success') }}
         </div>
     @endif
+<style>
+    .btn-blue {
+        background-color: blue;
+        color: white;
+    }
+    
+    .btn-red {
+        background-color: red;
+        color: white;
+    }
+    </style>
 
 
     <div class="single-pro-review-area mt-t-30 mg-b-15">
@@ -44,9 +55,14 @@
                                                                         <td>{{ $userId->fullname }}</td>
                                                                         <td>{{ $userId->mobileno }}</td>
                                                                         <td>{{ $userId->email }}</td>
-                                                                  <td>
-                                                                    <button class="pd-setting">Active</button>
-                                                                  </td>
+
+                                                                        <td>
+                                                                            <button class="pd-setting {{ $userId->status == 'active' ? 'btn-blue' : 'btn-red'}}">
+                                                                                {{ $userId->status }}
+                                                                            </button>
+                                                                        </td>
+
+                                                                 
                                                                   <td>
                                                                     <button data-toggle="tooltip" title="Edit" class="pd-setting-ed">
                                                                       <a href="{{ url('formedit', $userId->id) }}">
