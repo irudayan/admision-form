@@ -2508,12 +2508,13 @@ ul.mailbox-list li a:first-child{
 .custom-address-mailbox {
     margin-bottom: 20px;
 }
+
 .file-body i.fa {
     font-size: 40px;
-	padding:20px 0px;
+	padding:0px 0px 0px 0px;
 }
 .incon-ctn-view{
-	text-align:center;
+	text-align:right;
 }
 .btn-success.compose-btn {
     background-color: #006DF0;

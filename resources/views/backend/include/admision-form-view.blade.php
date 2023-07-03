@@ -39,8 +39,9 @@
                                                         <br>
                                                     <div class="row">
                                                       
-                                                        <div class="add-product">
-                                                            <a href="{{ url('formPdf', $form->id) }}">PDF</a>
+                                                        <div class="panel-body file-body incon-ctn-view">
+                                                            <a href="{{ url('formPdf', $form->id) }}">
+                                                                <i class="fa fa-file-pdf-o text-danger"></i></a>
                                                         </div>
                                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                                            

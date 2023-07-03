@@ -31,6 +31,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::post('/updateStatus', [App\Http\Controllers\AdmisionformController::class, 'updateStatus'])->name('updateStatus');
 
 
+
 // Route::get('admision-form', [App\Http\Controllers\AdmisionformController::class, 'index'])->name('admin-status');
 Route::get('status', [App\Http\Controllers\AdmisionformController::class, 'status'])->name('status');
 Route::get('admisionform-view/{id}', [App\Http\Controllers\AdmisionformController::class, 'formview'])->name('admisionform-view');
@@ -42,7 +43,9 @@ Route::post('formupdate', [App\Http\Controllers\AdmisionformController::class, '
 Route::get('formPdf/{id}',[App\Http\Controllers\AdmisionformController::class, 'formPdf'])->name('formPdf');
 
 // excel
-Route::get('export', [App\Http\Controllers\ExportController::class, 'exportForms']);
+Route::get('export',[App\Http\Controllers\ExportController::class, 'exportForms'])->name('exportForms');
+
+
 
 // manage users
 Route::get('/manageusers', [App\Http\Controllers\ManageusersController::class, 'managerusers'])->name('managerusers');

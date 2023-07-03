@@ -35,10 +35,8 @@ class AdmisionformController extends Controller
         $userId = Admisionform::where('user_id', Auth::user()->id)->first();
 
         if (empty($userId)) {
-            // dd('in');
             return view ('backend.include.admision-form');
         } else {
-            // dd('heernf');
         return view('backend.include.status', compact('userId'));
           
         }
@@ -184,8 +182,6 @@ class AdmisionformController extends Controller
             
             return view ('backend.include.admision-form');
         }else {
-
-            dd($request);
 
         return view('backend.include.admision-form-view', compact('form'));
     }

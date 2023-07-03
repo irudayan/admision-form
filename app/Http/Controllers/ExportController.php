@@ -10,11 +10,15 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class ExportController extends Controller
 {
-    public function exportUsers()
+    public function exportForms()
     {
-        dd('in');
-        return Excel::download(new FormsExport, 'users.xlsx');
+        
+        return Excel::download(new FormsExport, 'Form.xlsx');
+      
+
     }
 }
+
+
 
 
